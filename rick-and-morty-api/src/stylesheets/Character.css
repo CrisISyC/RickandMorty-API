@@ -1,0 +1,16 @@
+.characters-container {
+      text-align: center; /* Centra el texto */
+      margin-top: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.image-character {
+    height: 80%;
+    width: 100%; /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
+    object-fit: cover; /* Ajusta la imagen para que se ajuste al tamaño sin deformarse */
+}
+
+.name, .species, .status {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 5px 0; /* Margen entre el nombre y el resto del texto */
+}
