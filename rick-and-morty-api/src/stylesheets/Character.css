@@ -1,16 +1,73 @@
 .characters-container {
-      text-align: center; /* Centra el texto */
-      margin-top: 10px; /* Espacio entre la imagen y el texto */
-}
-
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 50px;
+    }
+    
+.character-container {
+      background-color: #403c44;
+      border-radius: 10px;
+      display: flex;
+      width: 500px;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    
+    
 .image-character {
-    height: 80%;
-    width: 100%; /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
-    object-fit: cover; /* Ajusta la imagen para que se ajuste al tamaño sin deformarse */
+      height: 100%;
+      width: 40%;
+      object-fit: cover; 
+      border-radius: 10px 0 0 10px ;
+      box-sizing: border-box;
+  }
+  
+.container-text {
+      flex: 1;
+      height: 100%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      box-sizing: border-box;
 }
-
-.name, .species, .status {
+  
+.name {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-left: 10px;
+}
+  
+.info-row {
+      display: flex;
+      gap: 8px; 
       font-size: 20px;
       font-weight: bold;
-      margin: 5px 0; /* Margen entre el nombre y el resto del texto */
+      margin-top: -50px;
+      margin-left: 10px;
 }
+
+.gender {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: auto;
+}
+
+.status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+}
+  
+.status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+}
+  
