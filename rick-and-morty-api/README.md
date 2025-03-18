@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Rick and Morty App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introducción
+Aplicación web desarrollada con React que permite explorar el universo de "Rick and Morty", proporcionando detalles sobre los personajes de la serie.
 
-## Available Scripts
+## Creación de la Aplicación
 
-In the project directory, you can run:
+### Paso 1: Configuración Inicial
+La aplicación fue creada utilizando `create-react-app`, que proporciona una estructura de proyecto lista para usar. Se utilizó el siguiente comando para iniciar el proyecto:
 
-### `npm start`
+```sh
+npx create-react-app rick-and-morty-api
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Paso 2: Instalación de Dependencias
+Se instalaron las dependencias necesarias para manejar las rutas dentro de la aplicación:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+npm install react-router-dom
+```
 
-### `npm test`
+### Paso 3: Estructura del Proyecto
+La estructura general del proyecto es la siguiente:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+rick-and-morty-api/
+├── src/
+│   ├── assets/
+│   │   ├── fondo.jpg
+│   │   └── logo.png
+│   ├── components/
+│   │   ├── Characterjsx
+│   │   ├── Episodes.jsx
+│   │   ├── Header.jsx
+│   │   └── UnderConstruction.jsx
+│   ├── pages/
+│   │   ├── CharacterDetail.jsx
+│   │   └── Home.jsx
+│   ├── stylesheets/
+│   │   ├── Character.css
+│   │   ├── CharacterDetail.css
+│   │   ├── Header.css
+│   │   ├── Home.css
+│   │   └── UnderConstruction.css
+│   ├── App.css
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+├── public/
+├── package.json
+└── README.md
+```
 
-### `npm run build`
+## Desafíos Encontrados
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Manejo de la paginación
+Inicialmente, la API solo devolvía 20 personajes por página, lo que dificultaba la implementación de filtros y búsquedas globales. La solución fue realizar llamadas consecutivas para recuperar todos los personajes antes de aplicarlos en la interfaz.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Refactorización de App.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Conforme avanzaba el desarrollo, App.js comenzó a acumular demasiado código, lo que iba en contra de las buenas prácticas. Para mejorar la organización, se creó el componente Home.jsx, lo que implicó migrar varias funciones y estados de App.js a Home.jsx. Este proceso presentó desafíos al momento de gestionar correctamente la información y asegurarse de que los componentes siguieran funcionando de manera óptima.
 
-### `npm run eject`
+### Configuración de rutas
+Configurar `react-router-dom` fue un reto, especialmente al manejar la navegación entre la página principal y los detalles de cada personaje. Se resolvió asegurando que las rutas estuvieran bien definidas y que los datos correctos se pasaran a cada componente.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Facilidades
+Una de las facilidades fue el consumo de la API de "Rick and Morty", ya que tiene una documentación clara y bien estructurada. Esto permitió un desarrollo más rápido sin necesidad de realizar configuraciones complejas en el backend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Recursos
+- [Documentación de React](https://react.dev/)
+- [API de Rick and Morty](https://rickandmortyapi.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
