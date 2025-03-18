@@ -1,124 +1,131 @@
+/* Contenedor principal de la lista de personajes */
 .characters-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); 
-      gap: 20px;
-      padding: 50px;
-      justify-content: center;
-      overflow-x: hidden;
-    }
-    
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 500px); /* Distribuye dinámicamente los personajes en columnas */
+  gap: 20px; /* Espaciado entre elementos */
+  padding: 50px; /* Espaciado interno para separar los personajes del borde de la pantalla */
+  justify-content: center; /* Centra los personajes horizontalmente */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  width: 100%;
+}
+
+/* Tarjeta contenedora de cada personaje */
 .character-container {
-      background-color: #403c44;
-      border-radius: 10px;
-      display: flex;
-      width: 500px;
-      height: 200px;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-    
-    
+  background-color: #403c44; /* Color de fondo de la tarjeta */
+  border-radius: 10px; /* Bordes redondeados */
+  display: flex; /* Usa flexbox para alinear la imagen y el texto */
+  width: 500px; /* Ancho fijo de cada tarjeta */
+  height: 200px; /* Altura fija de cada tarjeta */
+  overflow: hidden; /* Evita que los elementos internos sobresalgan */
+  box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño del contenedor */
+}
+
+/* Imagen del personaje */
 .image-character {
-      height: 100%;
-      width: 40%;
-      object-fit: cover; 
-      border-radius: 10px 0 0 10px ;
-      box-sizing: border-box;
-  }
-  
+  height: 100%; /* Ajusta la altura al 100% del contenedor padre */
+  width: 40%; /* Ocupa el 40% del ancho total de la tarjeta */
+  object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
+  border-radius: 10px 0 0 10px; /* Bordes redondeados solo en la parte izquierda */
+  box-sizing: border-box; /* Evita que padding o border alteren el tamaño */
+}
+
+/* Contenedor del texto del personaje */
 .container-text {
-      flex: 1;
-      height: 100%;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      box-sizing: border-box;
+  flex: 1; /* Hace que este contenedor ocupe todo el espacio restante en la tarjeta */
+  height: 100%;
+  color: white; 
+  display: flex; /* Usa flexbox para organizar los textos */
+  flex-direction: column; /* Acomoda los elementos en columna */
+  justify-content: flex-start; /* Alinea el contenido en la parte superior */
+  box-sizing: border-box; /* Mantiene el tamaño fijo sin afectar por padding */
 }
-  
+
+/* Nombre del personaje */
 .name {
-      font-size: 30px;
-      font-weight: bold;
-      margin-top: 10px;
-      margin-left: 10px;
+  font-size: 30px; 
+  font-weight: bold;
+  margin-top: 10px; /* Espaciado superior */
+  margin-left: 10px; /* Espaciado izquierdo */
 }
-  
+
+/* Fila que contiene el estado y la especie */
 .info-row {
-      display: flex;
-      gap: 8px; 
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: -50px;
-      margin-left: 10px;
+  display: flex;
+  gap: 8px;
+  font-size: 20px; 
+  font-weight: bold; 
+  margin-top: -50px; /* Ajuste negativo para acercarlo al nombre */
+  margin-left: 10px; /* Espaciado izquierdo */
 }
 
+/* Género del personaje */
 .gender {
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-      margin-top: auto;
+  font-size: 20px; 
+  font-weight: bold; 
+  text-align: center; 
+  margin-top: auto; /* Empuja el elemento hacia la parte inferior del contenedor */
 }
 
+/* Contenedor del estado del personaje */
 .status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+  display: flex;
+  align-items: center; 
+  gap: 8px; /* Espacio entre el punto de color y el texto */
 }
-  
+
+/* Indicador visual del estado (Alive, Dead, Unknown) */
 .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
+  width: 10px; /* Ancho del punto de color */
+  height: 10px; /* Altura del punto de color */
+  border-radius: 50%; /* Lo convierte en un círculo */
+  display: inline-block; /* Hace que se comporte como un elemento en línea */
 }
-  
 
-/* Efecto de zoom y sombra al pasar el mouse */
+/* Efecto de hover para resaltar la tarjeta */
 .character-container {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la animación */
+  cursor: pointer; 
+}
+
 .character-container:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
 
+/* Enlace de cada personaje */
 .character-link {
-      text-decoration: none;
-      color: inherit;
-      display: block; 
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: inherit;
+  display: block; /* Permite que todo el contenedor sea clickeable */
 }
-    
 
+/* Cambia el color del nombre al hacer hover */
 .character-container:hover .name {
-      color: #00aaff; 
+  color: #00aaff; 
 }
 
-/*Responsive _*/
+/* Diseño responsive para dispositivos pequeños */
 @media (max-width: 700px) {
-      .character-container {
-        flex-direction: column;
-        width: 300px; 
-        height: 500px; 
-        max-width: 400px; 
-        margin: auto;
-        align-items: center;
-        justify-content: center;
-      }
-    
-      .image-character {
-        width: 100%; 
-        height: 200px; 
-        border-radius: 10px 10px 0 0;
-      }
-    
-      .container-text {
-        padding: 15px;
-        align-items: center;
+  .character-container {
+    flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+    width: 300px; /* Reduce el tamaño de la tarjeta */
+    height: 500px; /* Ajusta la altura */
+    max-width: 400px; /* Limita el ancho máximo */
+    margin: auto; 
+    align-items: center; 
+    justify-content: center; 
+  }
 
-      }
-    
-    }
-    
+  /* Imagen ajustada para móviles */
+  .image-character {
+    width: 100%; 
+    height: 200px;
+    border-radius: 10px 10px 0 0; /* Redondea solo la parte superior */
+  }
+
+  /* Ajustes en el texto para mejorar la presentación en móviles */
+  .container-text {
+    padding: 15px;
+    align-items: center;
+  }
+}

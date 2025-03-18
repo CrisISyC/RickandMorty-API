@@ -1,0 +1,76 @@
+/* Contenedor de la paginación */
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espacio entre botones */
+  padding: 20px 0; /* Espaciado superior e inferior */
+}
+
+/* Estilos de los botones de paginación */
+.button-pagination {
+  background: #007bff; /* Azul brillante */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.button-pagination:hover {
+  transform: scale(1.08); /* Efecto de aumento al pasar el mouse */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button-pagination:disabled {
+  background: #555; /* Color gris cuando está deshabilitado */
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* Estilo del campo de búsqueda */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Títulos principales */
+.app-title {
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+
+}
+
+.app-subtitle {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Contador de resultados */
+.results-count {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.principal-container{
+  width: 100%;
+}

@@ -2,37 +2,49 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-import Characters from "./components/Character";
-import CharacterDetail from "./components/CharacterDetail";
+import Home from "./pages/Home";
+import CharacterDetail from "./pages/CharacterDetail";
 import UnderConstruction from "./components/UnderConstruction";
 
+/**
+ * Componente principal de la aplicación.
+ * Administra las rutas y la obtención de datos de la API de Rick and Morty.
+ * @returns {JSX.Element} Estructura de la aplicación con navegación y manejo de estados.
+ */
 function App() {
-  const [characters, setCharacters] = useState([]); // Todos los personajes de la API
-  const [filteredCharacters, setFilteredCharacters] = useState([]); // Personajes filtrados
-  const [paginatedCharacters, setPaginatedCharacters] = useState([]); // Personajes en pantalla
-  const [searchTerm, setSearchTerm] = useState(""); // Estado de búsqueda
-  const [currentPage, setCurrentPage] = useState(1); // Página actual
-  
+  // Estado para almacenar la lista de personajes obtenidos de la API
+  const [characters, setCharacters] = useState([]);
 
+  /**
+   * useEffect que se ejecuta una vez al montar el componente.
+   * Se encarga de obtener todos los personajes de la API de Rick and Morty.
+   */
   useEffect(() => {
+    /**
+     * Función asincrónica que obtiene todos los personajes de la API paginada.
+     * Utiliza un bucle `while` para recorrer todas las páginas disponibles.
+     */
     const fetchAllCharacters = async () => {
       try {
-        let allData = [];
-        let page = 1;
-        let totalPages = 1;
+        let allData = []; // Array para almacenar todos los personajes
+        let page = 1; // Página inicial
+        let totalPages = 1; // Total de páginas (se actualizará después de la primera solicitud)
 
         while (page <= totalPages) {
+          // Realiza la solicitud a la API con la página actual
           const res = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
           const data = await res.json();
 
+          // Agrega los personajes de la página actual al array
           allData = [...allData, ...data.results];
 
+          // Actualiza el total de páginas con el valor de la API
           totalPages = data.info.pages;
-          page++;
+          page++; // Avanza a la siguiente página
         }
 
+        // Almacena todos los personajes en el estado
         setCharacters(allData);
-        setFilteredCharacters(allData);
       } catch (error) {
         console.error("Error fetching characters:", error);
       }
@@ -41,76 +53,20 @@ function App() {
     fetchAllCharacters();
   }, []);
 
-  // Filtrar personajes según la búsqueda
-  useEffect(() => {
-    const filtered = characters.filter((character) =>
-      character.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    setFilteredCharacters(filtered);
-    setCurrentPage(1); // Reiniciar a la primera página cuando se realiza una búsqueda
-  }, [searchTerm, characters]);
-
-  // Paginación: actualizar `paginatedCharacters` cuando cambian `filteredCharacters` o `currentPage`
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * 20;
-    const endIndex = startIndex + 20;
-    setPaginatedCharacters(filteredCharacters.slice(startIndex, endIndex));
-  }, [filteredCharacters, currentPage]);
-
-  // Cambiar de página
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= Math.ceil(filteredCharacters.length / 20)) {
-      setCurrentPage(newPage);
-    }
-  };
-
   return (
     <Router>
       <div className="App">
         <Header />
 
+        {/* Definición de las rutas de la aplicación */}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <div className="app-title-container">
-                  <h1 className="app-title">The Rick and Morty App</h1>
-                </div>
-                <div className="app-subtitle-container">
-                  <h2 className="app-subtitle">Characters</h2>
-                </div>
-                <div className="search-bar-container">
-                  <input
-                    type="text"
-                    placeholder="Buscar personaje..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-bar"
-                  />
-                </div>
-                <div className="results-count">
-                  <p>{filteredCharacters.length} results found</p>
-                </div>
-                <Characters characters={paginatedCharacters} />
-                <div className="pagination">
-                  <button className="button-pagination" 
-                  onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
-                    Before
-                  </button>
-                  <span className="span-pagination">Page {currentPage} of {Math.ceil(filteredCharacters.length / 20)}</span>
-                  <button className="button-pagination" 
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage >= Math.ceil(filteredCharacters.length / 20)}
-                  >
-                    Next
-                  </button>
-                </div>
-              </>
-            }
-          />
+          {/* Página principal que muestra la lista de personajes */}
+          <Route path="/" element={<Home characters={characters} />} />
+          
+          {/* Página de detalles de un personaje */}
           <Route path="/character/:id" element={<CharacterDetail />} />
+          
+          {/* Secciones en construcción */}
           <Route path="/episodes" element={<UnderConstruction />} />
           <Route path="/locations" element={<UnderConstruction />} />
         </Routes>

@@ -1,28 +1,25 @@
-.character-detail{
-    color:white;
-    text-align: center;
+.character-detail {
+  color: white; /* Asegura contraste con el fondo oscuro */
+  text-align: center;
 }
 
 .back-link {
-    display: inline-block;
-    text-decoration: none; /* Elimina el subrayado */
-    background: #007bff; /* Azul similar a un enlace */
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease, transform 0.2s ease;
-    margin:50px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
+  display: inline-block;
+  text-decoration: none; 
+  background: #007bff; 
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  margin: 50px;
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  position: relative;
+  overflow: hidden; /* Evita que efectos de animación sobresalgan */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
 }
-
-
 
 .back-link:hover {
-    transform: scale(1.05); /* Efecto de "zoom" leve */
+  transform: scale(1.05); /* Efecto de "zoom" leve */
 }
-  
