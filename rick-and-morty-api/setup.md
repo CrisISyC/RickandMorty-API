@@ -1,34 +1,44 @@
-Setup del Proyecto Rick and Morty en React
+# Setup del Proyecto Rick and Morty en React
 
-Aplicación desplegada: [The Rick and Morty App](https://rickandmorty-api-kydo.onrender.com)
+### Aplicación desplegada: [The Rick and Morty App](https://rickandmorty-api-kydo.onrender.com)
 
 Este documento proporciona instrucciones detalladas para poner en funcionamiento el proyecto de React basado en Rick and Morty.
 
-Prerrequisitos
+## 🚀 Prerrequisitos
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-Node.js (versión recomendada: LTS)
+- **Node.js** (versión recomendada: LTS)
+- **Git**
+- **npm** (incluido con Node.js)
 
-Git
+## 📥 Instalación
 
-npm (incluido con Node.js)
+### 1️⃣ Clonar el repositorio
 
-Instalación
-
-Clonar el repositorio
-
-git clone [\[z\](https://github.com/CrisISyC/RickandMorty-API)](https://github.com/CrisISyC/RickandMorty-API)
+```sh
+git clone https://github.com/CrisISyC/RickandMorty-API
 cd rick-and-morty-api
+```
 
-Instalar dependencias
+### 2️⃣ Instalar dependencias
 
+```sh
 npm install
+```
 
-Ejecución del Proyecto
+## ▶️ Ejecución del Proyecto
 
 Para ejecutar el proyecto en modo desarrollo, usa el siguiente comando:
 
+```sh
 npm start
+```
 
-Esto iniciará el servidor de desarrollo y podrás acceder al proyecto en http://localhost:3000.
+Esto iniciará el servidor de desarrollo y podrás acceder al proyecto en:  
+🔗 [http://localhost:3000](http://localhost:3000)
+
+---
+
+¡Listo! 🚀 Ahora puedes explorar la aplicación.  
+Si tienes algún problema, revisa los errores en la terminal o abre un issue en el repositorio.
