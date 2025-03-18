@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Characters from "./components/Character";
 import CharacterDetail from "./components/CharacterDetail";
+import UnderConstruction from "./components/UnderConstruction";
 
 function App() {
   const [characters, setCharacters] = useState([]); // Lista de personajes
@@ -41,26 +42,28 @@ function App() {
       <div className="App">
         <Header />
   
-        {/* Pantalla con el título */}
-        <div className="app-title-container">
-          <h1 className="app-title">The Rick and Morty App</h1>
-        </div>
-  
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <input
-                  type="text"
-                  placeholder="Buscar personaje..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="search-bar"
-                />
-                <div className="information-characters">
-                  <Characters characters={filteredCharacters} />
+                      {/* Pantalla con el título */}
+                <div className="app-title-container">
+                  <h1 className="app-title">The Rick and Morty App</h1>
                 </div>
+                <div className="app-subtitle-container">
+                  <h2 className="app-subtitle">Characters</h2>
+                </div>
+                <div className="search-bar-container">
+                  <input
+                    type="text"
+                    placeholder="Buscar personaje..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-bar"
+                  />
+                </div>
+                <Characters characters={filteredCharacters} />
                 <div className="pagination">
                   <button 
                     onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -80,9 +83,12 @@ function App() {
             }
           />
           <Route path="/character/:id" element={<CharacterDetail />} />
+          <Route path="/episodes" element={<UnderConstruction />} />
+          <Route path="/locations" element={<UnderConstruction />} />
         </Routes>
       </div>
     </Router>
   );
 }
+
 export default App;

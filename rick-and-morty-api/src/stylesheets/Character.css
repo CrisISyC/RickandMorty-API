@@ -1,6 +1,6 @@
 .characters-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); 
       gap: 20px;
       padding: 50px;
     }
@@ -94,4 +94,30 @@
 .character-container:hover .name {
       color: #00aaff; 
 }
+
+/*Responsive _*/
+@media (max-width: 700px) {
+      .character-container {
+        flex-direction: column;
+        width: 300px; 
+        height: 500px; 
+        max-width: 400px; 
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .image-character {
+        width: 100%; 
+        height: 200px; 
+        border-radius: 10px 10px 0 0;
+      }
+    
+      .container-text {
+        padding: 15px;
+        align-items: center;
+
+      }
+    
+    }
     

@@ -3,8 +3,10 @@
     justify-content: space-between;
     align-items: center;
     background-color: #282c34;
-    padding: 15px;
+    padding: 20px;
     width: 100%;
+    height: 80px;
+    border: 1px solid red;
   }
   
   .logo img {
@@ -37,3 +39,19 @@
     color: #61dafb; /* Azul claro al pasar el mouse */
   }
   
+.app-title-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: lightgray;
+}

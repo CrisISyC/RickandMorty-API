@@ -17,6 +17,10 @@
   padding: 20px 0;
 }
 
+.search-bar-container{
+  width: 100%;
+}
+
 .search-bar {
   width: 100%;
   max-width: 400px;
@@ -26,11 +30,31 @@
   border-radius: 8px;
   margin: 20px auto;
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 .app-title {
   color: white; /* Título gris */
-  font-size: 60px;
+  font-size: 100px;
   font-weight: bold;
+}
+
+.app-title-container{
+  width: 100%;
+  height: 250;
+  text-align: center;
+  border: 1px solid red;
+}
+
+.app-subtitle {
+  color: white; /* Título gris */
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.app-subtitle-container{
+  width: 100%;
+  height: 250;
+  text-align: center;
+  border: 1px solid red;
 }
