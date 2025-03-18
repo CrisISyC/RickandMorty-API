@@ -1,21 +1,28 @@
 .character-detail{
-
     color:white;
     text-align: center;
-
 }
 
 .back-link {
     display: inline-block;
     text-decoration: none; /* Elimina el subrayado */
-    color: #007bff; /* Azul similar a un enlace */
+    background: #007bff; /* Azul similar a un enlace */
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 16px;
     transition: color 0.3s ease, transform 0.2s ease;
+    margin:50px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
 }
-  
+
+
+
 .back-link:hover {
-    color: #0056b3; /* Azul más oscuro al pasar el mouse */
     transform: scale(1.05); /* Efecto de "zoom" leve */
 }
   

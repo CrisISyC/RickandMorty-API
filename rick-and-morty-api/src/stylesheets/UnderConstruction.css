@@ -2,16 +2,66 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    height: 100vh; /* O ajusta según necesites */
+    height: 100vh;
     padding: 20px;
-  }
-  
-  
-.construction-image {
-    width: 300px; /* Ajusta el tamaño de la imagen */
-    max-width: 100%;
-    margin-top: 20px;
+    background-color: #282c3c;
+    width: 100%;
 }
-  
+
+/* Hace que el título esté bien arriba */
+.construction-container h2 {
+    margin-bottom: 40px;
+    align-self: center; /* Lo alinea arriba a la izquierda */
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+/* Contenedor para el texto y la imagen */
+.construction-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ajusta según necesidad */
+    height: 100%;
+}
+
+/* El párrafo alineado a la izquierda */
+.construction-content p {
+    flex: 1;
+    text-align: left;
+    color: white;
+    margin-left: 100px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+/* Imagen alineada a la derecha */
+.construction-image {
+    width: 298px;
+    max-width: 100%;
+    margin-left: 100px; /* Espacio entre el texto y la imagen */
+}
+
+@media (max-width: 700px) {
+    .construction-content {
+        flex-direction: column; /* Apila los elementos */
+        align-items: center;
+        text-align: center;
+    }
+
+    .construction-content p {
+        font-size: 20px; /* Reduce el tamaño del texto */
+        text-align: left; /* Mantiene alineación a la izquierda */
+        width: 90%; /* Ajusta el ancho */
+        margin: 0 auto 20px auto; /* Centra horizontalmente */
+    }
+
+    .construction-image {
+        width: 175px; /* Reduce el tamaño de la imagen */
+        margin-left: 0; /* Elimina margen izquierdo */
+        align-self: center; /* Mantiene la imagen alineada a la derecha */
+    }
+}

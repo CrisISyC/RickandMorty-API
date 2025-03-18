@@ -13,7 +13,6 @@
       display: flex;
       width: 500px;
       height: 200px;
-      border-radius: 10px;
       overflow: hidden;
       box-sizing: border-box;
     }
