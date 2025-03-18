@@ -71,3 +71,27 @@
       display: inline-block;
 }
   
+
+/* Efecto de zoom y sombra al pasar el mouse */
+.character-container {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    
+.character-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+
+.character-link {
+      text-decoration: none;
+      color: inherit;
+      display: block; 
+}
+    
+
+.character-container:hover .name {
+      color: #00aaff; 
+}
+    

@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .logo img {
+    width: 50px; /* Ajusta según el tamaño del logo */
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav li {
+    display: inline;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav a:hover {
+    color: #61dafb; /* Azul claro al pasar el mouse */
+  }
+  
